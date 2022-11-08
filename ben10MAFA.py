@@ -1,4 +1,4 @@
-# consolidates NTC positives from Trim CFX runs
+# consolidates NTC positives from AcousticLab
 
 import csv
 import os
