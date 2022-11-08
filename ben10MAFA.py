@@ -36,8 +36,7 @@ def per_csv(target):
     # write ntc positives to output stream
     for k, v in mydict.items():
         if (float(v) > 0):
-            f.write(str(k) + ": " + str(v) + "\n")
-            print(str(k) + ": " + str(v) + "\n")
+            f.write(str(k) + ":    " + str(v) + "\n")
 
 """ main """
 
