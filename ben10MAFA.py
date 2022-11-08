@@ -1,17 +1,15 @@
 # consolidates NTC positives from Trim CFX runs
-# example usage: cd to folder && python3 ben10MAFA.py
-# creates a text file with NTC positives
 
 import csv
 import os
 from glob import glob
 from pathlib import Path
-from shutil import copyfile
 
 directory = os.getcwd()
+paths = Path(directory).glob('**/*.txt',)
 
 def per_csv(target):
-    x = []  # Sample
+    x = []  # file name
     y = []  # Cq
 
     with open(target,'r') as csvfile:
@@ -20,7 +18,8 @@ def per_csv(target):
         for row in file:
             for value in row:
                 if (value.startswith('NTC')):
-                    x.append(row[5])
+                    x.append(target)
+                    #csvfile.read()    if paths = '**/*.csv'
                     y.append(row[7])
 
     # combine the two lists into a dictionary
@@ -37,14 +36,12 @@ def per_csv(target):
     # write ntc positives to output stream
     for k, v in mydict.items():
         if (float(v) > 0):
-            f.write(k + ": " + v + "\n")
-
-
+            f.write(str(k) + ": " + str(v) + "\n")
+            print(str(k) + ": " + str(v) + "\n")
 
 """ main """
 
 f = open("ben10MAFA.txt", "x")
 
-paths = Path(directory).glob('**/*.csv',)
 for path in paths:
     per_csv(path)
