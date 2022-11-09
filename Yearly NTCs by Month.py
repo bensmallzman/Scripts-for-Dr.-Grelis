@@ -31,6 +31,6 @@ plt.title('Frequency of NTC Positives by Month - 2022', fontsize = 20)
 plt.legend()
 plt.show()
 
-plt.pie(values, labels = keys, colors = ['y','b','g','c','r'], startangle=90,
+plt.pie(values, labels = keys, colors = ['y','b','g','c','r','g'], startangle=90,
         shadow=True, radius=1.2, autopct = '%1.1f%%')
 plt.show()
