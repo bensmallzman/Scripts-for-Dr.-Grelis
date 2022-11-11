@@ -44,10 +44,13 @@ for p in parent:
     for c in contents:
         for s in cqscores:
             if (s != 'nan') and (s != 'NaN') and (s != 'NAN') and (s != 'Cq'):
-                temp = float(s)
-                if ("NTC" in c) and (temp > 0):
-                    x.append(p)
-                    #y.append(temp)
+                try:
+                    temp = float(s)
+                    if ("NTC" in c) and (temp > 0):
+                        x.append(p)
+                        #y.append(temp)
+                except:
+                    pass
                     
 res = [*set(x)]
 statistic = "{:.0%}".format(len(res)/totalRuns)
